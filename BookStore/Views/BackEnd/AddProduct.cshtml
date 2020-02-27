@@ -1,0 +1,171 @@
+﻿@model BookStore.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "AddProduct";
+
+    IEnumerable<SelectListItem> product = ViewBag.Product;
+}
+
+@using (Html.BeginForm("InsertProduct", "BackEnd", FormMethod.Post))
+{
+    @Html.ValidationSummary(true);
+
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Author)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Author)
+                @Html.ValidationMessageFor(model => model.Author)
+            </td>
+        </tr>
+
+        <tr>
+            <td>供應商</td>
+            <td>@Html.DropDownListFor(model => model.Suppsno, product, new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Publish)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Publish)
+                @Html.ValidationMessageFor(model => model.Publish)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ActualPrice)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.ActualPrice)
+                @Html.ValidationMessageFor(model => model.ActualPrice)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.UnitPrice)
+                @Html.ValidationMessageFor(model => model.UnitPrice)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Discount)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Discount)
+                @Html.ValidationMessageFor(model => model.Discount)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Language)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Language)
+                @Html.ValidationMessageFor(model => model.Language)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.PageNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.PageNumber)
+                @Html.ValidationMessageFor(model => model.PageNumber)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.ISBN)
+                @Html.ValidationMessageFor(model => model.ISBN)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Url)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Url, new { type = "file" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Alt)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Alt)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Href)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Href)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Describe)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Describe)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Outline)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Outline)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Contents)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Contents)
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="新增" />
+    <input type="reset" value="清除" />
+}
+    
+    
+
+
+
+

@@ -1,0 +1,40 @@
+﻿@model BookStore.ViewModels.BulletinDViewModel
+
+@{
+    ViewBag.Title = "Bulletin";
+}
+
+<div class="panel panel-default">
+    @foreach (var ItemM in Model.DataListM)
+    {
+        if (@ItemM.IsEnable)
+        {
+            <div class="panel-heading"><h4>@ItemM.Name</h4></div>
+        }
+
+        foreach (var ItemD in Model.DataListD)
+        {
+            if (@ItemM.Bulletinsno.Equals(@ItemD.Bulletinsno))
+            {
+                if (@ItemD.IsEnable)
+                {
+                    if (@ItemD.IsImage)
+                    {
+                        <div class="panel-body"><a href="#" title="@ItemD.Alt"><img src="~/Image/Bulletin/@ItemD.Url" width="135"></a></div>
+                    }
+                    else
+                    {
+                        <div class="panel-body"><small>@Html.ActionLink(ItemD.Name,"","")</small></div>
+                    }
+                }
+            }
+        }
+    }
+</div>
+
+
+    
+
+
+
+

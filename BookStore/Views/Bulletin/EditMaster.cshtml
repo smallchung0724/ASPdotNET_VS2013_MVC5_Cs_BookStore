@@ -1,0 +1,44 @@
+﻿@model BookStore.ViewModels.BulletinMViewModel
+
+@{
+    ViewBag.Title = "EditMaster";
+}
+
+@using (Html.BeginForm("EditMaster", "Bulletin", FormMethod.Post))
+{
+    <h3>EditMaster</h3>
+    
+    @Html.ValidationSummary(true);
+    
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IsEnable)
+            </td>
+            <th>
+                @Html.CheckBoxFor(model => model.IsEnable)
+                @Html.ValidationMessageFor(model => model.IsEnable)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Sort)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Sort)
+                @Html.ValidationMessageFor(model => model.Sort)
+            </td>
+        </tr>
+    </table>
+    @Html.HiddenFor(model => model.Bulletinsno)
+    <input type="submit" value="修改" />
+}

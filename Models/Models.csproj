@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9429B706-88D9-499B-9541-2B7E324D9FA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookStoreContext.cs" />
+    <Compile Include="Interface\IRepository_BulletinD.cs" />
+    <Compile Include="Interface\IRepository_BulletinM.cs" />
+    <Compile Include="Interface\IRepository_Member.cs" />
+    <Compile Include="Interface\IRepository_OrderD.cs" />
+    <Compile Include="Interface\IRepository_OrderM.cs" />
+    <Compile Include="Interface\IRepository_Product.cs" />
+    <Compile Include="Interface\IRepository_Role.cs" />
+    <Compile Include="Interface\IRepository_Supplier.cs" />
+    <Compile Include="Interface\IRepository_TrollerD.cs" />
+    <Compile Include="Interface\IRepository_TrollerM.cs" />
+    <Compile Include="Interface\IService_BulletinD.cs" />
+    <Compile Include="Interface\IService_BulletinM.cs" />
+    <Compile Include="Interface\IService_Member.cs" />
+    <Compile Include="Interface\IService_OrderD.cs" />
+    <Compile Include="Interface\IService_OrderM.cs" />
+    <Compile Include="Interface\IService_Product.cs" />
+    <Compile Include="Interface\IService_Role.cs" />
+    <Compile Include="Interface\IService_Supplier.cs" />
+    <Compile Include="Interface\IService_TrollerD.cs" />
+    <Compile Include="Interface\IService_TrollerM.cs" />
+    <Compile Include="Migrations\201804050636397_Init.cs" />
+    <Compile Include="Migrations\201804050636397_Init.Designer.cs">
+      <DependentUpon>201804050636397_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository_BulletinD.cs" />
+    <Compile Include="Repository\Repository_BulletinM.cs" />
+    <Compile Include="Repository\Repository_Member.cs" />
+    <Compile Include="Repository\Repository_OrderD.cs" />
+    <Compile Include="Repository\Repository_OrderM.cs" />
+    <Compile Include="Repository\Repository_Product.cs" />
+    <Compile Include="Repository\Repository_Role.cs" />
+    <Compile Include="Repository\Repository_Supplier.cs" />
+    <Compile Include="Repository\Repository_TrollerD.cs" />
+    <Compile Include="Repository\Repository_TrollerM.cs" />
+    <Compile Include="Table\BulletinD.cs" />
+    <Compile Include="Table\BulletinM.cs" />
+    <Compile Include="Table\Member.cs" />
+    <Compile Include="Table\OrderD.cs" />
+    <Compile Include="Table\OrderM.cs" />
+    <Compile Include="Table\Partials\BulletinD.cs" />
+    <Compile Include="Table\Partials\BulletinM.cs" />
+    <Compile Include="Table\Partials\Member.cs" />
+    <Compile Include="Table\Partials\OrderD.cs" />
+    <Compile Include="Table\Partials\OrderM.cs" />
+    <Compile Include="Table\Partials\Product.cs" />
+    <Compile Include="Table\Partials\Role.cs" />
+    <Compile Include="Table\Partials\Supplier.cs" />
+    <Compile Include="Table\Partials\TrollerD.cs" />
+    <Compile Include="Table\Partials\TrollerM.cs" />
+    <Compile Include="Table\Product.cs" />
+    <Compile Include="Table\Role.cs" />
+    <Compile Include="Table\Supplier.cs" />
+    <Compile Include="Table\TrollerD.cs" />
+    <Compile Include="Table\TrollerM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804050636397_Init.resx">
+      <DependentUpon>201804050636397_Init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

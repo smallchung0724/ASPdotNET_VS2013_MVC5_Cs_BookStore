@@ -1,0 +1,79 @@
+﻿@model BookStore.ViewModels.BulletinDViewModel
+
+@{
+    ViewBag.Title = "DetailSet";
+}
+
+<h2>佈告欄明細</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>抬頭</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Sort)</th>
+            <th>@Html.DisplayNameFor(model => model.IsEnable)</th>
+            <th>@Html.DisplayNameFor(model => model.IsImage)</th>
+            <th>@Html.DisplayNameFor(model => model.Url)</th>
+            <th>@Html.DisplayNameFor(model => model.Alt)</th>
+            <th>@Html.DisplayNameFor(model => model.Href)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.DataListD.Count.Equals(0))
+        {
+            foreach (var Item in Model.DataListD)
+            {
+                <tr>
+                    @foreach (var item in Model.DataListM)
+                    {
+                        if (@Item.Bulletinsno.Equals(@item.Bulletinsno))
+                        {
+                            <td>@item.Name</td>
+                            break;
+                        }
+                    }
+                    <td>@Item.Name</td>
+                    <td>@Item.Sort</td>
+                    <td>
+                        @if (@Item.IsEnable)
+                        {
+                            @:是
+                            }
+                        else
+                        {
+                            @:否
+                            }
+                    </td>
+                    <td>
+                        @if (@Item.IsImage)
+                        {
+                            @:是
+                        }
+                        else
+                        {
+                            @:否
+                        }
+                    </td>
+                    <td>@Item.Url</td>
+                    <td>@Item.Alt</td>
+                    <td>@Item.Href</td>
+                    <td>@Html.ActionLink("編輯", "EditDetail", new { Bulletinsno = Item.Bulletindtsno })</td>
+                    <td>@Html.ActionLink("刪除", "DeleteDetail", new { Bulletinsno = Item.Bulletindtsno })</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>
+                    資料庫內查無資料
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("新增","AddBulletinD","Bulletin")

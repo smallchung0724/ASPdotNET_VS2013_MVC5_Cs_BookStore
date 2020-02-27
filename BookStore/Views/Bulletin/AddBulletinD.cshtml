@@ -1,0 +1,80 @@
+﻿@model BookStore.ViewModels.BulletinDViewModel
+
+@{
+    ViewBag.Title = "AddBulletinD";
+
+    IEnumerable<SelectListItem> bullteinM = ViewBag.BullteinM;
+}
+
+@using (Html.BeginForm("AddBulletinD", "Bulletin", FormMethod.Post))
+{
+    <h2>新增佈告欄明細</h2>
+
+    @Html.ValidationSummary(true);
+
+    <table class="table">
+        <thead>
+        <tr>
+            <td>
+                抬頭
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Bulletinsno, bullteinM, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IsEnable)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.IsEnable)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IsImage)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.IsImage)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Url)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Url, new { type = "file" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Alt)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Alt)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Href)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Href)
+            </td>
+        </tr>
+    </thead>
+        <tbody></tbody>
+    </table>
+    <input type="submit" value="新增" />
+    <input type="reset" value="清除" />
+}
+

@@ -1,0 +1,63 @@
+﻿@model BookStore.ViewModels.SupplierViewModel
+
+@{
+    ViewBag.Title = "AddSupplier";
+}
+
+@using (@Html.BeginForm("AddSupplier", "BackEnd", FormMethod.Post))
+{
+    <h3>新增供應商資料</h3>
+    
+    @Html.ValidationSummary(true);
+
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Phone)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Fax)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Fax)
+                @Html.ValidationMessageFor(model => model.Fax)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Adress)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Adress)
+                @Html.ValidationMessageFor(model => model.Adress)
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="新增" />
+    <input type="reset" value="清除" />
+}

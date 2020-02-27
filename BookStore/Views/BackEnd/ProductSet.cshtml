@@ -1,0 +1,70 @@
+﻿@model BookStore.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "ProductSet";
+}
+
+@using (Html.BeginForm("AddProduct", "BackEnd", FormMethod.Post))
+{ 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Author)</th>
+                <th>@Html.DisplayNameFor(model => model.Publish)</th>
+                <th>@Html.DisplayNameFor(model => model.ActualPrice)</th>
+                <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
+                <th>@Html.DisplayNameFor(model => model.Discount)</th>
+                <th>@Html.DisplayNameFor(model => model.Language)</th>
+                <th>@Html.DisplayNameFor(model => model.PageNumber)</th>
+                <th>@Html.DisplayNameFor(model => model.ISBN)</th>
+                <th>@Html.DisplayNameFor(model => model.Url)</th>
+                <th>@Html.DisplayNameFor(model => model.Alt)</th>
+                <th>@Html.DisplayNameFor(model => model.Href)</th>
+                <th>@Html.DisplayNameFor(model => model.Describe)</th>
+                <th>@Html.DisplayNameFor(model => model.Outline)</th>
+                <th>@Html.DisplayNameFor(model => model.Contents)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.DataList.Count.Equals(0))
+            {
+                foreach (var Item in Model.DataList)
+                {
+                    <tr>
+                        <td>@Item.Name</td>
+                        <td>@Item.Author</td>
+                        <td>@Item.Publish</td>
+                        <td>@Item.ActualPrice</td>-
+                        <td>@Item.UnitPrice</td>
+                        <td>@Item.Discount</td>
+                        <td>@Item.Language</td>
+                        <td>@Item.PageNumber</td>
+                        <td>@Item.ISBN</td>
+                        <td>@Item.Url</td>
+                        <td>@Item.Alt</td>
+                        <td>@Item.Href</td>
+                        <td>@Item.Describe</td>
+                        <td>@Item.Outline</td>
+                        <td>@Item.Contents</td>
+                        <td>@Html.ActionLink("編輯", "", "BackEnd")</td>
+                        <td>@Html.ActionLink("刪除", "", "BackEnd")</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        資料庫內查無資料
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <input type="submit" value="新增" />
+}
+

@@ -1,0 +1,51 @@
+﻿@model BookStore.ViewModels.BulletinMViewModel
+
+@{
+    ViewBag.Title = "MasterSet";
+}
+
+@using (Html.BeginForm("AddBulletinM", "Bulletin", FormMethod.Get))
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.IsEnable)</th>
+                <th>@Html.DisplayNameFor(model => model.Sort)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.DataList.Count.Equals(0))
+            {
+                foreach (var Item in Model.DataList)
+                {
+                    <tr>
+                        <td>@Item.Name</td>
+                        <td>@if(@Item.IsEnable)
+                            {
+                                @:是
+                            } 
+                            else
+                            {
+                               @:否 
+                            }</td>
+                        <td>@Item.Sort</td>
+                        <td>@Html.ActionLink("編輯", "EditMaster", new { Bulletinsno = Item.Bulletinsno })</td>
+                        <td>@Html.ActionLink("刪除", "DeleteMaster", new { Bulletinsno = Item.Bulletinsno })</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        資料庫內查無資料
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="新增" />
+}
